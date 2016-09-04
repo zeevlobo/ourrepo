@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+  - name: Install github
+    become: yes
+    become_method: sudo
+    yum: name=git   state=latest
+  - name: Checkout ourrepo
+    git: repo=https://github.com/zeevlobo/ourrepo.git dest=/home/ec2-user/ourrepo
+  - name: Checkout ourrepo
+    git: repo=https://github.com/zeevlobo/spring-petclinic.git dest=/home/ec2-user/spring-petclinic
